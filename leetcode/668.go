@@ -2,13 +2,6 @@ package leetcode
 
 // m乘n的乘法表，找到第k大的数 1<=k<=m*n
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 // count of nums less than or equal to mid
 func countByVal(m, n, mid int) int {
 	var cnt int
