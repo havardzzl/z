@@ -13,7 +13,7 @@ func maxSubarraySumCircular(nums []int) int {
 	minDp := dpMin[0]
 	maxDp := dpMax[0]
 
-	for i := 1; i < len(nums); i++ {
+	for i := 1; i < n; i++ {
 		dpMin[i] = min(dpMin[i-1]+nums[i], nums[i])
 		dpMax[i] = max(dpMax[i-1]+nums[i], nums[i])
 		minDp = min(minDp, dpMin[i])
