@@ -14,5 +14,5 @@ func TestFn(t *testing.T) {
 	// t.Log("isPalindrome: ", isPalindrome("A man, a plan, a canal: Panama"))
 	// t.Log("isHappy: ", isHappy(7))
 	// t.Log("numIslands: ", numIslands([][]byte{{'1', '1'}}))
-	t.Log("canCompleteCircuit: ", canCompleteCircuit([]int{5, 8, 2, 8}, []int{6, 5, 6, 6}))
+	rotate([]int{-1, -100, 3, 99}, 2)
 }
