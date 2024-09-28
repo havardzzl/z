@@ -14,5 +14,25 @@ func TestFn(t *testing.T) {
 	// t.Log("isPalindrome: ", isPalindrome("A man, a plan, a canal: Panama"))
 	// t.Log("isHappy: ", isHappy(7))
 	// t.Log("numIslands: ", numIslands([][]byte{{'1', '1'}}))
-	rotate([]int{-1, -100, 3, 99}, 2)
+	t.Log("isSymmetric:", isSymmetric(&TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val: 3,
+			},
+			Right: &TreeNode{
+				Val: 4,
+			},
+		},
+		Right: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val: 4,
+			},
+			Right: &TreeNode{
+				Val: 3,
+			},
+		},
+	}))
 }
