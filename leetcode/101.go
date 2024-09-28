@@ -4,12 +4,14 @@ func isSymmetric(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
-	lNodes := []*TreeNode{root.Left}
-	rNodes := []*TreeNode{root.Right}
-	symmetric := func() bool {
+	var symmetric func(lNodes, rNodes []*TreeNode) bool
+	symmetric = func(lNodes, rNodes []*TreeNode) bool {
 		m, n := len(lNodes), len(rNodes)
 		if m != n {
 			return false
+		}
+		if m == 0 {
+			return true
 		}
 		lNodes2 := []*TreeNode{}
 		rNodes2 := []*TreeNode{}
@@ -17,7 +19,7 @@ func isSymmetric(root *TreeNode) bool {
 			if lNodes[i] == nil && rNodes[i] == nil {
 				continue
 			}
-			if (lNodes[i] == nil && rNodes[i] != nil) || (lNodes[i] != nil && rNodes[i] == nil) {
+			if lNodes[i] == nil || rNodes[i] == nil {
 				return false
 			}
 			if lNodes[i].Val != rNodes[i].Val {
@@ -26,14 +28,7 @@ func isSymmetric(root *TreeNode) bool {
 			lNodes2 = append(lNodes2, lNodes[i].Left, lNodes[i].Right)
 			rNodes2 = append(rNodes2, rNodes[i].Right, rNodes[i].Left)
 		}
-		lNodes = lNodes2
-		rNodes = rNodes2
-		return true
+		return symmetric(lNodes2, rNodes2)
 	}
-	for len(lNodes) > 0 || len(rNodes) > 0 {
-		if !symmetric() {
-			return false
-		}
-	}
-	return true
+	return symmetric([]*TreeNode{root.Left}, []*TreeNode{root.Right})
 }
