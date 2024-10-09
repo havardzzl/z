@@ -5,7 +5,7 @@ type MinStack struct {
 	stack      []int
 }
 
-func Constructor() MinStack {
+func StackConstructor() MinStack {
 	return MinStack{miniRecord: [][2]int{}, stack: make([]int, 0)}
 }
 
