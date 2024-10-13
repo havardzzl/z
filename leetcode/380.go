@@ -9,7 +9,7 @@ type RandomizedSet struct {
 	data []int
 }
 
-func Constructor() RandomizedSet {
+func ConstructorRS() RandomizedSet {
 	return RandomizedSet{r: make(map[int]int)}
 }
 
