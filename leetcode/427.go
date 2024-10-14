@@ -1,12 +1,12 @@
 package leetcode
 
-type Node struct {
+type NNode0 struct {
 	Val         bool
 	IsLeaf      bool
-	TopLeft     *Node
-	TopRight    *Node
-	BottomLeft  *Node
-	BottomRight *Node
+	TopLeft     *NNode0
+	TopRight    *NNode0
+	BottomLeft  *NNode0
+	BottomRight *NNode0
 }
 
 func theSame(grid [][]int) bool {
@@ -21,9 +21,9 @@ func theSame(grid [][]int) bool {
 	return true
 }
 
-func construct(grid [][]int) *Node {
+func construct(grid [][]int) *NNode0 {
 	if theSame(grid) {
-		return &Node{
+		return &NNode0{
 			Val:    grid[0][0] == 1,
 			IsLeaf: true,
 		}
@@ -39,7 +39,7 @@ func construct(grid [][]int) *Node {
 		botL = append(botL, grid[n/2+i][:n/2])
 		botR = append(botR, grid[n/2+i][n/2:])
 	}
-	return &Node{
+	return &NNode0{
 		IsLeaf:      false,
 		TopLeft:     construct(topL),
 		TopRight:    construct(topR),
