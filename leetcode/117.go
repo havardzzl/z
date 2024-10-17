@@ -1,19 +1,19 @@
 package leetcode
 
-type Node struct {
+type Node11 struct {
 	Val   int
-	Left  *Node
-	Right *Node
-	Next  *Node
+	Left  *Node11
+	Right *Node11
+	Next  *Node11
 }
 
-func connect(root *Node) *Node {
+func connect(root *Node11) *Node11 {
 	if root == nil {
 		return root
 	}
-	nodes := []*Node{root}
+	nodes := []*Node11{root}
 	for len(nodes) > 0 {
-		newNodes := []*Node{}
+		newNodes := []*Node11{}
 		for i := range nodes {
 			if i < len(nodes)-1 {
 				nodes[i].Next = nodes[i+1]

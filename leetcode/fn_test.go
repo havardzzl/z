@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"sort"
+	"fmt"
 	"testing"
 )
 
@@ -15,5 +15,12 @@ func TestFn(t *testing.T) {
 	// t.Log("isPalindrome: ", isPalindrome("A man, a plan, a canal: Panama"))
 	// t.Log("isHappy: ", isHappy(7))
 	// t.Log("numIslands: ", numIslands([][]byte{{'1', '1'}}))
-	t.Log("isSymmetric:", sort.SearchInts([]int{1, 3, 5}, 2))
+	nodes := []*Node{{Val: 1}, {Val: 2}, {Val: 3}}
+	record := map[int]*Node{}
+	for _, n := range nodes {
+		record[n.Val] = n
+	}
+	for k, v := range record {
+		fmt.Println(k, v.Val)
+	}
 }
