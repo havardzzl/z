@@ -14,5 +14,5 @@ func TestFn(t *testing.T) {
 	// t.Log("isPalindrome: ", isPalindrome("A man, a plan, a canal: Panama"))
 	// t.Log("isHappy: ", isHappy(7))
 	// t.Log("numIslands: ", numIslands([][]byte{{'1', '1'}}))
-	t.Log("minDistance: ", getSmallestString("220"))
+	solve([][]byte{{'O', 'O', 'O'}, {'O', 'O', 'O'}, {'O', 'O', 'O'}})
 }
