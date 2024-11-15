@@ -11,5 +11,8 @@ func findMin(nums []int) int {
 			left = mid + 1
 		}
 	}
-	return nums[left]
+	if left < n {
+		return nums[left]
+	}
+	return nums[0]
 }
