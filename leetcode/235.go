@@ -1,17 +1,11 @@
 package leetcode
 
-func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
-	pv, qv := p.Val, q.Val
-	for root != nil {
-		if pv < root.Val && qv < root.Val {
-			root = root.Left
-			continue
-		}
-		if pv > root.Val && qv > root.Val {
-			root = root.Right
-			continue
-		}
-		return root
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	if root.Val < p.Val && root.Val < q.Val {
+		return lowestCommonAncestor(root.Right, p, q)
 	}
-	return nil
+	if root.Val > p.Val && root.Val > q.Val {
+		return lowestCommonAncestor(root.Left, p, q)
+	}
+	return root
 }

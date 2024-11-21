@@ -1,6 +1,6 @@
 package leetcode
 
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
 	var ans *TreeNode
 
 	merge := func(m1, m2 map[int]bool) map[int]bool {
