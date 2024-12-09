@@ -6,7 +6,6 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 	for i := 0; i <= l1; i++ {
 		dp[i] = make([]int, l2+1)
 	}
-	ans := 0
 	for i := 0; i <= l1; i++ {
 		for j := 0; j <= l2; j++ {
 			if i == 0 || j == 0 {
@@ -17,8 +16,7 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 			} else {
 				dp[i][j] = max(dp[i-1][j], dp[i][j-1])
 			}
-			ans = max(ans, dp[i][j])
 		}
 	}
-	return ans
+	return dp[l1][l2]
 }
