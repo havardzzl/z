@@ -6,24 +6,15 @@ func longestPalindromeSubseq(s string) int {
 	for i := range dp {
 		dp[i] = make([]int, n)
 	}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) (ans int) {
-		defer func() {
-			dp[i][j] = ans
-		}()
-		if dp[i][j] != 0 {
-			return dp[i][j]
+	for i := n - 1; i >= 0; i-- {
+		dp[i][i] = 1
+		for j := i + 1; j < n; j++ {
+			if s[i] == s[j] {
+				dp[i][j] = 2 + dp[i+1][j-1]
+			} else {
+				dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+			}
 		}
-		if i > j {
-			return 0
-		}
-		if i == j {
-			return 1
-		}
-		if s[i] == s[j] {
-			return 2 + dfs(i+1, j-1)
-		}
-		return max(dfs(i+1, j), dfs(i, j-1))
 	}
-	return dfs(0, n-1)
+	return dp[0][n-1]
 }
