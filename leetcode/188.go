@@ -16,9 +16,8 @@ func maxProfit3(k int, prices []int) int {
 	dp[0][1] = math.MinInt16
 	for i := 1; i < n; i++ {
 		for j := 1; j < k+2; j++ {
-			newJ0 := max(dp[j][0], dp[j-1][1]+prices[i])
 			dp[j][1] = max(dp[j][1], dp[j][0]-prices[i])
-			dp[j][0] = newJ0
+			dp[j][0] = max(dp[j][0], dp[j-1][1]+prices[i])
 		}
 	}
 	return dp[k+1][0]
