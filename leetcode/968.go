@@ -20,6 +20,7 @@ func minCameraCover(root *TreeNode) int {
 			return [2]int{install, val}, cover
 		}
 		// 左右节点至少有一个节点如果不安装摄像头就不能被覆盖
+		// 能过，但是不合理
 		return [2]int{install, math.MaxInt16}, true
 	}
 	vals, ok := dfs(root)
