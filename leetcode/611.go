@@ -2,19 +2,21 @@ package leetcode
 
 import (
 	"slices"
-	"sort"
 )
 
 func triangleNumber(nums []int) int {
 	slices.Sort(nums)
 	n := len(nums)
 	ans := 0
-	for i := 0; i < n-2; i++ {
-		for j := i + 1; j < n-1; j++ {
-			maxV := nums[i] + nums[j]
-			idx := sort.SearchInts(nums, maxV)
-			if idx > j+1 {
-				ans += idx - j - 1
+	for i := 2; i < n; i++ {
+		j := 0
+		k := i - 1
+		for k > j {
+			if nums[k]+nums[j] > nums[i] {
+				ans += k - j
+				k--
+			} else {
+				j++
 			}
 		}
 	}
